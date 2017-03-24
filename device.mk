@@ -1,5 +1,5 @@
 #
-# Copyright 2013 The Android Open-Source Project
+# Copyright 2017 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 #
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/lenovo/P780/prebuilt/kernel
+LOCAL_KERNEL := device/lenovo/P780/kernel
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -24,11 +24,6 @@ PRODUCT_COPY_FILES := \
 	$(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/default.prop:default.prop
-
-LOCAL_CURTAIN := device/lenovo/P780/recovery/twres/images/curtain.jpg
-
-PRODUCT_COPY_FILES += \
-	$(LOCAL_CURTAIN):recovery/root/twres/images/curtain.jpg
+	$(DEVICE_PATH)/default.prop:default.prop
 
 $(call inherit-product-if-exists, vendor/lenovo/P780/device-vendor.mk)
